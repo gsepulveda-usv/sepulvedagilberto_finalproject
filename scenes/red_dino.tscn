@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://ds4qw67j1cxp0"]
+
+[ext_resource type="Texture2D" uid="uid://drrv7jsvfsegc" path="res://assets/characters/DinoSprites - mort.png" id="1_1egoj"]
+[ext_resource type="Script" uid="uid://cmyera1flx4ht" path="res://scripts/red_dino.gd" id="1_tlejt"]
+[ext_resource type="AudioStream" uid="uid://b5h1lflqfox1t" path="res://assets/sounds/sfx_jump.ogg" id="3_ugdvr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4afit"]
+atlas = ExtResource("1_1egoj")
+region = Rect2(336, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvw32"]
+atlas = ExtResource("1_1egoj")
+region = Rect2(360, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntgl2"]
+atlas = ExtResource("1_1egoj")
+region = Rect2(384, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlejt"]
+atlas = ExtResource("1_1egoj")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugdvr"]
+atlas = ExtResource("1_1egoj")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kl5mg"]
+atlas = ExtResource("1_1egoj")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5a8oj"]
+atlas = ExtResource("1_1egoj")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cekk"]
+atlas = ExtResource("1_1egoj")
+region = Rect2(240, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8a1w"]
+atlas = ExtResource("1_1egoj")
+region = Rect2(264, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pva3d"]
+atlas = ExtResource("1_1egoj")
+region = Rect2(288, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3ir8"]
+atlas = ExtResource("1_1egoj")
+region = Rect2(432, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nc5th"]
+atlas = ExtResource("1_1egoj")
+region = Rect2(456, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqywg"]
+atlas = ExtResource("1_1egoj")
+region = Rect2(480, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jorjq"]
+atlas = ExtResource("1_1egoj")
+region = Rect2(504, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fu3hq"]
+atlas = ExtResource("1_1egoj")
+region = Rect2(528, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uenii"]
+atlas = ExtResource("1_1egoj")
+region = Rect2(552, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5cekk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4afit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvw32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntgl2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvw32")
+}],
+"loop": false,
+"name": &"Damage",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlejt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugdvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kl5mg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5a8oj")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cekk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8a1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pva3d")
+}],
+"loop": false,
+"name": &"Jump",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3ir8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nc5th")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqywg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jorjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fu3hq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uenii")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e8a1w"]
+radius = 7.0
+
+[node name="Red Dino" type="CharacterBody2D" unique_id=1376993074 groups=["Player"]]
+z_index = 5
+collision_layer = 2
+script = ExtResource("1_tlejt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=682269060]
+position = Vector2(0, -9)
+sprite_frames = SubResource("SpriteFrames_5cekk")
+animation = &"Damage"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=764035240]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_e8a1w")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="." unique_id=690724605]
+stream = ExtResource("3_ugdvr")
+volume_db = -5.0
+bus = &"SFX"

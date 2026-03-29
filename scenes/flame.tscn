@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://osas0kyluq1m"]
+
+[ext_resource type="Texture2D" uid="uid://dj1xkbv6xalqm" path="res://assets/tilesets/Flame.png" id="1_x50ei"]
+[ext_resource type="Texture2D" uid="uid://dlmpan5dhgq0o" path="res://assets/tilesets/tileset.png" id="2_hmmd7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rp4rw"]
+atlas = ExtResource("1_x50ei")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyk1v"]
+atlas = ExtResource("1_x50ei")
+region = Rect2(25, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhela"]
+atlas = ExtResource("1_x50ei")
+region = Rect2(51, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cfuo"]
+atlas = ExtResource("1_x50ei")
+region = Rect2(77, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d084y"]
+atlas = ExtResource("1_x50ei")
+region = Rect2(103, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l014h"]
+atlas = ExtResource("1_x50ei")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_20r0a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rp4rw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyk1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhela")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cfuo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d084y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l014h")
+}],
+"loop": true,
+"name": &"flame",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jiew0"]
+
+[sub_resource type="Gradient" id="Gradient_y1kxg"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wkqv1"]
+gradient = SubResource("Gradient_y1kxg")
+fill = 1
+fill_from = Vector2(0.51452994, 0.48376068)
+fill_to = Vector2(0.8974359, 0.09059829)
+
+[node name="Flame" type="AnimatableBody2D" unique_id=586316792]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=295743883]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_20r0a")
+animation = &"flame"
+autoplay = "flame"
+frame_progress = 0.57630485
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=32961892]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_jiew0")
+disabled = true
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2096176362]
+position = Vector2(0, -16)
+texture = SubResource("GradientTexture2D_wkqv1")
+
+[node name="Node2D" type="Sprite2D" parent="." unique_id=150023616]
+texture = ExtResource("2_hmmd7")
+region_enabled = true
+region_rect = Rect2(159, 160, 18, 16)
