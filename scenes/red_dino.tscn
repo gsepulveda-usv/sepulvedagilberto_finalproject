@@ -145,7 +145,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_e8a1w"]
 radius = 7.0
 
-[node name="Red Dino" type="CharacterBody2D" unique_id=1376993074 groups=["Player"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugdvr"]
+size = Vector2(11, 2)
+
+[node name="Red Dino" type="CharacterBody2D" unique_id=1376993074 groups=["Player", "player"]]
 z_index = 5
 collision_layer = 2
 script = ExtResource("1_tlejt")
@@ -157,10 +160,20 @@ animation = &"Damage"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=764035240]
-position = Vector2(0, -7)
+position = Vector2(1.8626451e-09, -9)
+rotation = 3.1449645
 shape = SubResource("CircleShape2D_e8a1w")
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="." unique_id=690724605]
 stream = ExtResource("3_ugdvr")
 volume_db = -5.0
 bus = &"SFX"
+
+[node name="JumpKillZone" type="Area2D" parent="." unique_id=1619691771]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpKillZone" unique_id=1382938770]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_ugdvr")
+debug_color = Color(0.8300378, 0.11992972, 0.9022877, 0.41960785)

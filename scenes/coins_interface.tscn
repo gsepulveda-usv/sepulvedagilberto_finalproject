@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://6x3x57np0txk"]
+
+[ext_resource type="FontFile" uid="uid://dshtrc5ngwuv6" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_rgd4e"]
+
+[node name="CoinsInterface" type="CanvasLayer" unique_id=2141965510]
+
+[node name="CoinCounter" type="Label" parent="." unique_id=1347056382]
+z_index = 1
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 277.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("1_rgd4e")
+theme_override_font_sizes/font_size = 16
+text = "Coins = 0"

@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://bexv7sp8hwp24"]
+
+[ext_resource type="Texture2D" uid="uid://cwlwoifplvyak" path="res://assets/items/fruit_animation.png" id="1_lb6hy"]
+[ext_resource type="Script" uid="uid://dofgewpskjjon" path="res://scripts/fruit_full_life.gd" id="2_oa02l"]
+[ext_resource type="AudioStream" uid="uid://c5prdsju4bnni" path="res://assets/sounds/sfx_gem.ogg" id="3_g0sn7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2iqo"]
+atlas = ExtResource("1_lb6hy")
+region = Rect2(3, 43, 11, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xs25j"]
+atlas = ExtResource("1_lb6hy")
+region = Rect2(14, 43, 11, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd5pn"]
+atlas = ExtResource("1_lb6hy")
+region = Rect2(25, 43, 11, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhy3p"]
+atlas = ExtResource("1_lb6hy")
+region = Rect2(36, 43, 11, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x61vl"]
+atlas = ExtResource("1_lb6hy")
+region = Rect2(47, 43, 11, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kh82"]
+atlas = ExtResource("1_lb6hy")
+region = Rect2(58, 43, 11, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d2j5m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2iqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xs25j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd5pn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhy3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x61vl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kh82")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0l56c"]
+radius = 5.0
+
+[node name="Fruit Full Life" type="AnimatedSprite2D" unique_id=536863348]
+sprite_frames = SubResource("SpriteFrames_d2j5m")
+autoplay = "default"
+frame_progress = 0.93717927
+script = ExtResource("2_oa02l")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=167375950]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1424257828]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_0l56c")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=682141902]
+stream = ExtResource("3_g0sn7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

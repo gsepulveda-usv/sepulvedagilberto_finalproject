@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cca46dtxsb4v1"]
+
+[ext_resource type="Texture2D" uid="uid://cd5tmplncfvhp" path="res://assets/tilesets/logo_dark.png" id="1_sl802"]
+[ext_resource type="PackedScene" uid="uid://cpmbdhdqugyr4" path="res://scenes/fade_transition.tscn" id="3_yl2gg"]
+
+[node name="Godot Logo" type="Control" unique_id=391614565]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="ColorRect" parent="." unique_id=785295382]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1368260874]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -317.99994
+offset_top = -103.0
+offset_right = 3615.0
+offset_bottom = 1285.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1599491, 0.1636985)
+texture = ExtResource("1_sl802")
+
+[node name="Fade Transition" parent="." unique_id=359746098 instance=ExtResource("3_yl2gg")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="fade_timer" type="Timer" parent="Fade Transition" unique_id=1989446120]
+
+[connection signal="timeout" from="Fade Transition/fade_timer" to="." method="_on_fade_timer_timeout"]

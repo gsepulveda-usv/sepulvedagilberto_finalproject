@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bvpg7a6wvroqk"]
+
+[ext_resource type="Texture2D" uid="uid://7nvhame2hsfr" path="res://assets/tilesets/SepichuloStudiosLogo_Pixelated.png" id="2_56oqa"]
+[ext_resource type="PackedScene" uid="uid://cpmbdhdqugyr4" path="res://scenes/fade_transition.tscn" id="3_ulsjd"]
+
+[node name="Sepi Logo" type="Control" unique_id=391614565]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="ColorRect" parent="." unique_id=785295382]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1368260874]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -370.0
+offset_top = -219.0
+offset_right = 654.0
+offset_bottom = 429.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.72, 0.6799999)
+texture = ExtResource("2_56oqa")
+
+[node name="Fade Transition" parent="." unique_id=359746098 instance=ExtResource("3_ulsjd")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="fade_timer" type="Timer" parent="Fade Transition" unique_id=733966197]
+
+[connection signal="timeout" from="Fade Transition/fade_timer" to="." method="_on_fade_timer_timeout"]

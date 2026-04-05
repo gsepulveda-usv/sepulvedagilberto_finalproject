@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d1qjcw1e5bkah"]
+
+[ext_resource type="Script" uid="uid://dwt6d2itbtygd" path="res://scripts/kilzone_level_2.gd" id="1_br3cf"]
+
+[node name="KilzoneLevel2" type="Area2D" unique_id=867926759]
+script = ExtResource("1_br3cf")
+
+[node name="Timer" type="Timer" parent="." unique_id=29487222]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
