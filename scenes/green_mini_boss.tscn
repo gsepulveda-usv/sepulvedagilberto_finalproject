@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://j1xyutyimpar" path="res://scripts/green_mini_boss.gd" id="1_kbga2"]
 [ext_resource type="Texture2D" uid="uid://ct1vo2ep76pmt" path="res://assets/enemies/Green Slime Spritesheet.png" id="2_nch4r"]
-[ext_resource type="PackedScene" uid="uid://d1qjcw1e5bkah" path="res://scenes/kilzone_level_2.tscn" id="3_nch4r"]
+[ext_resource type="PackedScene" uid="uid://d1qjcw1e5bkah" path="res://scenes/killzone_level_2.tscn" id="3_nch4r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vudvl"]
 atlas = ExtResource("2_nch4r")
@@ -113,6 +113,42 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_piyp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vudvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlghu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lvmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vudvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlghu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lvmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vudvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlghu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lvmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vudvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlghu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lvmy")
 }],
 "loop": true,
 "name": &"attack",
@@ -134,7 +170,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oqpq5")
 }],
-"loop": true,
+"loop": false,
 "name": &"dead",
 "speed": 5.0
 }, {
@@ -171,9 +207,6 @@ size = Vector2(56, 17)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ksp1m"]
 size = Vector2(39, 7.5)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_quawo"]
-radius = 54.0
-
 [node name="Green Mini Boss" type="Node2D" unique_id=563146897]
 script = ExtResource("1_kbga2")
 
@@ -182,7 +215,8 @@ position = Vector2(0, -32)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_m1b6s")
 animation = &"attack"
-autoplay = "walking"
+autoplay = "attack"
+frame_progress = 0.29506585
 
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=2100422707]
 position = Vector2(0.05209732, -4.688879)
@@ -192,10 +226,10 @@ target_position = Vector2(24.947903, -0.311121)
 position = Vector2(0.05209732, -4.688879)
 target_position = Vector2(-29.052097, -0.311121)
 
-[node name="KilzoneLevel2" parent="." unique_id=867926759 instance=ExtResource("3_nch4r")]
+[node name="KillzoneLevel2" parent="." unique_id=867926759 instance=ExtResource("3_nch4r")]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KilzoneLevel2" unique_id=1955496857]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillzoneLevel2" unique_id=1955496857]
 position = Vector2(-2, -8.5)
 shape = SubResource("RectangleShape2D_2pm4j")
 
@@ -208,14 +242,6 @@ position = Vector2(-1, -41.75)
 shape = SubResource("RectangleShape2D_ksp1m")
 debug_color = Color(0.8735025, 0.0037850023, 0.8412964, 0.41960785)
 
-[node name="SpikeAttack" type="Area2D" parent="." unique_id=85234335]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeAttack" unique_id=1944367284]
-position = Vector2(-1, -28)
-shape = SubResource("CircleShape2D_quawo")
-debug_color = Color(0.117749475, 0.6387637, 0.31556463, 0.41960785)
-
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="body_entered" from="KilzoneLevel2" to="." method="_on_kilzone_level_2_body_entered"]
+[connection signal="body_entered" from="KillzoneLevel2" to="." method="_on_kilzone_level_2_body_entered"]
 [connection signal="body_entered" from="KillBox" to="." method="_on_kill_box_body_entered"]

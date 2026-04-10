@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bc5edrh0n8q01"]
+
+[ext_resource type="Texture2D" uid="uid://dv2k8j7jxyyuh" path="res://assets/tilesets/props_updated.png" id="1_ueraj"]
+[ext_resource type="Script" uid="uid://c2j0i57seqk65" path="res://scripts/start_point.gd" id="2_bi1dq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bi1dq"]
+
+[node name="StartPoint" type="Sprite2D" unique_id=2143178517]
+texture = ExtResource("1_ueraj")
+region_enabled = true
+region_rect = Rect2(373, 186, 18, 20)
+script = ExtResource("2_bi1dq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1566654300]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=802246077]
+shape = SubResource("RectangleShape2D_bi1dq")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=539498892]
+position = Vector2(0, 9)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

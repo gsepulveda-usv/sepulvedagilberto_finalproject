@@ -102,7 +102,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x214e"]
-size = Vector2(16, 2.8323917)
+size = Vector2(2, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4u050"]
 size = Vector2(12, 3.75)
@@ -119,7 +119,11 @@ autoplay = "walk"
 [node name="Killzone" parent="." unique_id=1009995600 instance=ExtResource("2_kjinu")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=503630085]
-position = Vector2(0, -1.5838041)
+position = Vector2(-7, -1.5838041)
+shape = SubResource("RectangleShape2D_x214e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Killzone" unique_id=1768253805]
+position = Vector2(7, -2)
 shape = SubResource("RectangleShape2D_x214e")
 
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=423662853]
@@ -130,7 +134,7 @@ target_position = Vector2(7, 0)
 position = Vector2(0.05209732, -4.688879)
 target_position = Vector2(-7, 0)
 
-[node name="KillBox" type="Area2D" parent="." unique_id=1668860024 groups=["Player"]]
+[node name="KillBox" type="Area2D" parent="." unique_id=1668860024]
 collision_layer = 4
 collision_mask = 2
 

@@ -16,6 +16,30 @@ region = Rect2(360, 0, 24, 24)
 atlas = ExtResource("1_1egoj")
 region = Rect2(384, 0, 24, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljsjl"]
+atlas = ExtResource("1_1egoj")
+region = Rect2(336, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66hs0"]
+atlas = ExtResource("1_1egoj")
+region = Rect2(360, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nu2n4"]
+atlas = ExtResource("1_1egoj")
+region = Rect2(384, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vx5k"]
+atlas = ExtResource("1_1egoj")
+region = Rect2(336, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wd56c"]
+atlas = ExtResource("1_1egoj")
+region = Rect2(360, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbga8"]
+atlas = ExtResource("1_1egoj")
+region = Rect2(384, 0, 24, 24)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_tlejt"]
 atlas = ExtResource("1_1egoj")
 region = Rect2(0, 0, 24, 24)
@@ -89,6 +113,50 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ljsjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66hs0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nu2n4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66hs0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vx5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wd56c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbga8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wd56c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vx5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wd56c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbga8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wd56c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljsjl")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_tlejt")
 }, {
 "duration": 1.0,
@@ -156,8 +224,10 @@ script = ExtResource("1_tlejt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=682269060]
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_5cekk")
-animation = &"Damage"
+animation = &"Death"
 autoplay = "Idle"
+frame = 12
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=764035240]
 position = Vector2(1.8626451e-09, -9)
@@ -177,3 +247,5 @@ collision_mask = 4
 position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_ugdvr")
 debug_color = Color(0.8300378, 0.11992972, 0.9022877, 0.41960785)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

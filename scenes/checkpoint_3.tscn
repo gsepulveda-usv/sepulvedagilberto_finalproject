@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cptqxd4x0sysv"]
+
+[ext_resource type="Script" uid="uid://h1oehocd1o6k" path="res://scripts/checkpoint_3.gd" id="1_6x748"]
+[ext_resource type="Texture2D" uid="uid://gxr53rfkko18" path="res://assets/tilesets/props.png" id="1_52dx8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnwyo"]
+size = Vector2(8, 74)
+
+[node name="Checkpoint3" type="Sprite2D" unique_id=86926246]
+texture = ExtResource("1_52dx8")
+region_enabled = true
+region_rect = Rect2(373, 156, 18, 20)
+script = ExtResource("1_6x748")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=622729649]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=162241591]
+position = Vector2(0, -27)
+shape = SubResource("RectangleShape2D_jnwyo")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1462728377]
+position = Vector2(0, 10)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
