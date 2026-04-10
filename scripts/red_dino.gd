@@ -1,12 +1,10 @@
 extends CharacterBody2D
 
-
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
-var respawn_point = Vector2(3342, -31)
 var hearts_list : Array[TextureRect]
 var health = 3
-var isDead = false
+var isDead: bool = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -68,13 +66,28 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+	if isDead:
+		return
+	for collision in get_slide_collision_count():
+		var col = get_slide_collision(collision)
+		if col.get_collider().is_in_group("enemy"):
+			dead()
+
 func bounce_after_stomp():
 	velocity.y = -300
 	
-func set_checkpoint(pos):
-	respawn_point = pos
+func dead():
+	if isDead:
+		isDead = true
+		print("Player is Dead")
+		velocity = Vector2.ZERO
+		$AnimatedSprite2D.play("Death")
+		print("Playing death animation")
+		$CollisionShape2D.disbaled = true
+		await $AnimatedSprite2D.animation_finished
+		print("Death animation has finished")
+		self.queue_free()
 
-func respawn_player():
-	if respawn_point == Vector2.ZERO:
-		get_tree().reload_current_scene()
-	
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if isDead == true:
+		queue_free()

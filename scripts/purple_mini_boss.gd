@@ -1,9 +1,9 @@
 extends Node2D
 
-const SPEED = 60
+const SPEED = 80
 
 var direction = -1
-var health = 10
+var health = 5
 var isDead: bool = false
 var can_attack: bool = false
 @onready var ray_cast_right: RayCast2D = $RayCastRight

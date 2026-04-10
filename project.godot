@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout="uid://bxlh3wfgat0j4"
 
+[autoload]
+
+GlobalScript="*uid://s7c2onw11m5e"
+
 [editor]
 
 movie_writer/movie_file="C:/Users/sepic/Documents/Godot/sepulveda-gilberto-final-project/movies/SepulvedaGilberto_FinalProject_ProgressCheck_Coding_01.avi"
@@ -87,6 +91,12 @@ select={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Environment"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemies"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
@@ -95,3 +105,4 @@ select={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+2d/snap/snap_2d_transforms_to_pixel=true

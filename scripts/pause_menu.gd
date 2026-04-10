@@ -2,6 +2,11 @@ extends Control
 
 @onready var first_project = $"../../.."
 
+func _input(event):
+	if event.is_action_pressed("pause"): # Mapped Input
+		get_tree().paused = not get_tree().paused # Toggle pause state
+		$".".visible = get_tree().paused # Show/hide pause menu
+
 func _on_resume_pressed() -> void:
 	first_project.pauseMenu()
 
