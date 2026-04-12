@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bnerureehijou"]
+
+[ext_resource type="AudioStream" uid="uid://cqjd8x18sikkh" path="res://assets/music/dungeon_01.ogg" id="1_05ggv"]
+
+[node name="Music" type="AudioStreamPlayer2D" unique_id=757560992]
+scale = Vector2(1.084999, 0.94294524)
+stream = ExtResource("1_05ggv")
+autoplay = true
+max_distance = 4096.0
+bus = &"Music"

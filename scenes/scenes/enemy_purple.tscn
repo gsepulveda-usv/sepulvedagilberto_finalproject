@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://0s07vb54s6g8"]
+
+[ext_resource type="Texture2D" uid="uid://b8lxuhlmpsfi8" path="res://assets/enemies/Purple Slime Spritesheet.png" id="1_fug5m"]
+[ext_resource type="Script" uid="uid://ulujit7hqy1b" path="res://scripts/enemy_purple.gd" id="1_uspd4"]
+[ext_resource type="PackedScene" uid="uid://d1qjcw1e5bkah" path="res://scenes/killzone_level_2.tscn" id="3_fug5m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uspd4"]
+atlas = ExtResource("1_fug5m")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkwtm"]
+atlas = ExtResource("1_fug5m")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u75n4"]
+atlas = ExtResource("1_fug5m")
+region = Rect2(96, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3i8j"]
+atlas = ExtResource("1_fug5m")
+region = Rect2(112, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jipp7"]
+atlas = ExtResource("1_fug5m")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31l81"]
+atlas = ExtResource("1_fug5m")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_613ir"]
+atlas = ExtResource("1_fug5m")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucc0c"]
+atlas = ExtResource("1_fug5m")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6a0bk"]
+atlas = ExtResource("1_fug5m")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqqun"]
+atlas = ExtResource("1_fug5m")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5x804"]
+atlas = ExtResource("1_fug5m")
+region = Rect2(144, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_py7xv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uspd4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkwtm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u75n4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3i8j")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jipp7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31l81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_613ir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucc0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6a0bk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqqun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5x804")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fug5m"]
+size = Vector2(8, 5.8147645)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uspd4"]
+size = Vector2(2, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkwtm"]
+size = Vector2(2, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6oqi4"]
+size = Vector2(8, 2.375)
+
+[node name="enemy_purple" type="RigidBody2D" unique_id=87970734 groups=["enemies"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_uspd4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=554288899]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_py7xv")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=72652863]
+position = Vector2(0, -4)
+scale = Vector2(1, 1.0318561)
+shape = SubResource("RectangleShape2D_fug5m")
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=449827148]
+position = Vector2(0.05209732, -4.688879)
+target_position = Vector2(7, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=438491620]
+position = Vector2(0.05209732, -4.688879)
+target_position = Vector2(-7, 0)
+
+[node name="KillzoneLevel2" parent="." unique_id=867926759 instance=ExtResource("3_fug5m")]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillzoneLevel2" unique_id=791347703]
+position = Vector2(-6, -2.5)
+scale = Vector2(1, 0.7599995)
+shape = SubResource("RectangleShape2D_uspd4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="KillzoneLevel2" unique_id=415419181]
+position = Vector2(6, -2.5)
+scale = Vector2(1, 0.7599995)
+shape = SubResource("RectangleShape2D_dkwtm")
+
+[node name="KillBox" type="Area2D" parent="." unique_id=402738100]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillBox" unique_id=130136138]
+position = Vector2(0, -11.1875)
+shape = SubResource("RectangleShape2D_6oqi4")
+debug_color = Color(0.75340587, 0.25027502, 0.93952274, 0.41960785)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="KillBox" to="." method="_on_kill_box_body_entered"]

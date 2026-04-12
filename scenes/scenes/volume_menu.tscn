@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://7urne10jmxkf"]
+
+[ext_resource type="Script" uid="uid://7pgs1plc0w8l" path="res://scripts/volume_menu.gd" id="1_1ken0"]
+[ext_resource type="FontFile" uid="uid://dshtrc5ngwuv6" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_uu17j"]
+[ext_resource type="Texture2D" uid="uid://bwtjse4p38uq8" path="res://assets/tilesets/back.png" id="1_wdy41"]
+[ext_resource type="PackedScene" uid="uid://cpmbdhdqugyr4" path="res://scenes/fade_transition.tscn" id="4_gbio0"]
+
+[node name="Volume Menu" type="Control" unique_id=1518730935]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1ken0")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2073278112]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wdy41")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1635404262]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 237.0
+offset_right = 833.0
+offset_bottom = 433.0
+
+[node name="Back to Options" type="Button" parent="VBoxContainer" unique_id=1396506685]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_uu17j")
+theme_override_font_sizes/font_size = 32
+text = "Back to Options"
+
+[node name="Back to Main Menu" type="Button" parent="VBoxContainer" unique_id=606181238]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_uu17j")
+theme_override_font_sizes/font_size = 32
+text = "Back to Main Menu"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1570500090]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 380.0
+offset_right = 726.0
+offset_bottom = 488.0
+
+[node name="MusicLabel" type="Label" parent="VBoxContainer2" unique_id=1312916675]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_uu17j")
+theme_override_font_sizes/font_size = 32
+text = "BGM Slider"
+horizontal_alignment = 1
+
+[node name="MusicHSlider" type="HSlider" parent="VBoxContainer2" unique_id=1058924187]
+layout_mode = 2
+
+[node name="SFX" type="Label" parent="VBoxContainer2" unique_id=792081704]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_uu17j")
+theme_override_font_sizes/font_size = 32
+text = "SFX Slider"
+horizontal_alignment = 1
+
+[node name="FXHSlider2" type="HSlider" parent="VBoxContainer2" unique_id=677292561]
+layout_mode = 2
+
+[node name="Fade Transition" parent="." unique_id=359746098 instance=ExtResource("4_gbio0")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+
+[node name="fade_timer" type="Timer" parent="Fade Transition" unique_id=2007780188]
+
+[connection signal="pressed" from="VBoxContainer/Back to Options" to="." method="_on_back_to_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back to Main Menu" to="." method="_on_back_to_main_menu_pressed"]
+[connection signal="timeout" from="Fade Transition/fade_timer" to="." method="_on_fade_timer_timeout"]

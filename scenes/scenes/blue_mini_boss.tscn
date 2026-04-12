@@ -1,0 +1,288 @@
+[gd_scene format=3 uid="uid://dfr0wh81m17xx"]
+
+[ext_resource type="Texture2D" uid="uid://c4gs7qxm5g70i" path="res://assets/enemies/Blue Slime Spritesheet.png" id="1_3fwid"]
+[ext_resource type="Script" uid="uid://dq3l2rbfmsqt3" path="res://scripts/blue_mini_boss.gd" id="1_g252y"]
+[ext_resource type="PackedScene" uid="uid://b7jqhauqkj5ld" path="res://scenes/killzone_final_area.tscn" id="3_g252y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pempj"]
+atlas = ExtResource("1_3fwid")
+region = Rect2(57, 107, 15, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edh2n"]
+atlas = ExtResource("1_3fwid")
+region = Rect2(89, 107, 15, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_am0it"]
+atlas = ExtResource("1_3fwid")
+region = Rect2(121, 107, 15, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vepn8"]
+atlas = ExtResource("1_3fwid")
+region = Rect2(153, 107, 15, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvyxb"]
+atlas = ExtResource("1_3fwid")
+region = Rect2(185, 107, 15, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ekm1"]
+atlas = ExtResource("1_3fwid")
+region = Rect2(217, 107, 15, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vioi"]
+atlas = ExtResource("1_3fwid")
+region = Rect2(249, 107, 15, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yak2s"]
+atlas = ExtResource("1_3fwid")
+region = Rect2(281, 107, 15, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnjmq"]
+atlas = ExtResource("1_3fwid")
+region = Rect2(313, 107, 15, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60dbc"]
+atlas = ExtResource("1_3fwid")
+region = Rect2(345, 107, 15, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap6rt"]
+atlas = ExtResource("1_3fwid")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbr4k"]
+atlas = ExtResource("1_3fwid")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wg5hj"]
+atlas = ExtResource("1_3fwid")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8fbc"]
+atlas = ExtResource("1_3fwid")
+region = Rect2(96, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fo3t2"]
+atlas = ExtResource("1_3fwid")
+region = Rect2(112, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mggw3"]
+atlas = ExtResource("1_3fwid")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnkae"]
+atlas = ExtResource("1_3fwid")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxivy"]
+atlas = ExtResource("1_3fwid")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0a4j5"]
+atlas = ExtResource("1_3fwid")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_do88u"]
+atlas = ExtResource("1_3fwid")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk53a"]
+atlas = ExtResource("1_3fwid")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvsrw"]
+atlas = ExtResource("1_3fwid")
+region = Rect2(144, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wyety"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pempj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edh2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_am0it")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vepn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvyxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ekm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vioi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yak2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnjmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60dbc")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ap6rt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbr4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wg5hj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8fbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fo3t2")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mggw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnkae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxivy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0a4j5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_do88u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk53a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvsrw")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pempj"]
+size = Vector2(54, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4rrje"]
+size = Vector2(32, 7.5)
+
+[sub_resource type="Animation" id="Animation_g252y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KillzoneFinalArea/CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -31)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KillBox/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -63)]
+}
+
+[sub_resource type="Animation" id="Animation_pempj"]
+resource_name = "jump"
+length = 0.8333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KillzoneFinalArea/CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.415, 0.76666665, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -31), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KillBox/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.415, 0.76666665, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -32), Vector2(0, -32), Vector2(0, -63), Vector2(0, -32), Vector2(0, -32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_edh2n"]
+_data = {
+&"RESET": SubResource("Animation_g252y"),
+&"jump": SubResource("Animation_pempj")
+}
+
+[node name="Blue Mini Boss" type="Node2D" unique_id=1655035560 groups=["enemies"]]
+script = ExtResource("1_g252y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2087002788]
+position = Vector2(0, -32)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_wyety")
+animation = &"attack"
+autoplay = "attack"
+frame_progress = 0.46200055
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=1414381198]
+position = Vector2(0.05209732, -4.688879)
+target_position = Vector2(24.947903, -0.311121)
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=1634984418]
+position = Vector2(0.05209732, -4.688879)
+target_position = Vector2(-29.052097, -0.311121)
+
+[node name="KillzoneFinalArea" parent="." unique_id=2057169383 instance=ExtResource("3_g252y")]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillzoneFinalArea" unique_id=176446589]
+position = Vector2(0, -31)
+shape = SubResource("RectangleShape2D_pempj")
+
+[node name="KillBox" type="Area2D" parent="." unique_id=1439912895]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillBox" unique_id=337094850]
+position = Vector2(0, -63)
+shape = SubResource("RectangleShape2D_4rrje")
+debug_color = Color(0.8735025, 0.0037850023, 0.8412964, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=496179959]
+libraries/ = SubResource("AnimationLibrary_edh2n")
+autoplay = &"jump"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="KillBox" to="." method="_on_kill_box_body_entered"]

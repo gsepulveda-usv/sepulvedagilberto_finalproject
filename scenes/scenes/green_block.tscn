@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://cjnwqxjhs3npi"]
+
+[ext_resource type="Script" uid="uid://bqdluth8jsq8n" path="res://scripts/green_block.gd" id="1_1q6ge"]
+[ext_resource type="Texture2D" uid="uid://bpsojelcn1g3a" path="res://assets/items/InventoryRect_Green.png" id="1_fuhxk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1q6ge"]
+size = Vector2(17.723715, 16.878239)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g63ix"]
+
+[sub_resource type="Animation" id="Animation_1q6ge"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g63ix"]
+resource_name = "vanish"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1lmn3"]
+_data = {
+&"RESET": SubResource("Animation_1q6ge"),
+&"vanish": SubResource("Animation_g63ix")
+}
+
+[node name="Green Block" type="StaticBody2D" unique_id=1851795259]
+collision_mask = 2
+script = ExtResource("1_1q6ge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2066206836]
+position = Vector2(0.45242572, 0.25033355)
+shape = SubResource("RectangleShape2D_1q6ge")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1141522174]
+position = Vector2(-0.5693455, -0.82555103)
+scale = Vector2(0.8960007, 0.8)
+texture = ExtResource("1_fuhxk")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2073964122]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=490191616]
+shape = SubResource("RectangleShape2D_g63ix")
+
+[node name="Timer" type="Timer" parent="." unique_id=965983276]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1493719421]
+libraries/ = SubResource("AnimationLibrary_1lmn3")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

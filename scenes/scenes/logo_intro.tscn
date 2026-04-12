@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bhlm86jfk6g5o"]
+
+[ext_resource type="PackedScene" uid="uid://df50wrj5u5ch1" path="res://scenes/usv_logo.tscn" id="2_3vtwa"]
+[ext_resource type="PackedScene" uid="uid://bvpg7a6wvroqk" path="res://scenes/sepi_logo.tscn" id="3_an74f"]
+[ext_resource type="PackedScene" uid="uid://cca46dtxsb4v1" path="res://scenes/godot_logo.tscn" id="4_ahpro"]
+[ext_resource type="PackedScene" uid="uid://cpmbdhdqugyr4" path="res://scenes/fade_transition.tscn" id="5_0cy56"]
+
+[sub_resource type="GDScript" id="GDScript_0ifyl"]
+script/source = "extends Control
+
+@onready var fade_timer: Timer = $\"Fade Transition/fade_timer\"
+
+func _ready() -> void:
+	$\"USV Logo\".show()
+	Engine.time_scale = 2.5
+	queue_free()
+	
+func _on_fade_timer_timeout() -> void:
+	Engine.time_scale = 2.5
+	get_tree().change_scene_to_file(\"res://scenes/main_menu.tscn\")
+"
+
+[node name="LogoIntro" type="Control" unique_id=1651050563]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_0ifyl")
+
+[node name="Fade Transition" parent="." unique_id=359746098 instance=ExtResource("5_0cy56")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="fade_timer" type="Timer" parent="Fade Transition" unique_id=1424479218]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1708241161]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="USV Logo" parent="." unique_id=391614565 instance=ExtResource("2_3vtwa")]
+layout_mode = 1
+
+[node name="Sepi Logo" parent="." unique_id=1731220659 instance=ExtResource("3_an74f")]
+visible = false
+layout_mode = 1
+
+[node name="Godot Logo" parent="." unique_id=2007266681 instance=ExtResource("4_ahpro")]
+visible = false
+layout_mode = 1
+
+[connection signal="timeout" from="Fade Transition/fade_timer" to="." method="_on_fade_timer_timeout"]

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cn82lu15xq74k"]
+
+[ext_resource type="Texture2D" uid="uid://c5pga5qmbl2qo" path="res://assets/tilesets/tileset_dark.png" id="1_2vwwh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wocqp"]
+size = Vector2(20, 12)
+
+[node name="Barrel Platform" type="AnimatableBody2D" unique_id=434356365]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=769983874]
+position = Vector2(0, 7.6293945e-06)
+scale = Vector2(0.735, 0.79347825)
+texture = ExtResource("1_2vwwh")
+region_enabled = true
+region_rect = Rect2(177, 160, 14, 16)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=815113482]
+position = Vector2(9.999998, 7.6293945e-06)
+scale = Vector2(0.735, 0.79347825)
+texture = ExtResource("1_2vwwh")
+region_enabled = true
+region_rect = Rect2(177, 160, 14, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=68517855]
+z_index = 1
+position = Vector2(5, 0)
+shape = SubResource("RectangleShape2D_wocqp")
+one_way_collision = true

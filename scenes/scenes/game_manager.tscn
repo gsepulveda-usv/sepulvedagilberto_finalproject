@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c2uck7q02n5re"]
+
+[ext_resource type="Script" uid="uid://ccgkvvcxwwh4e" path="res://scripts/game_manager.gd" id="1_hwd4i"]
+[ext_resource type="PackedScene" uid="uid://6x3x57np0txk" path="res://scenes/coins_interface.tscn" id="2_glms7"]
+
+[node name="GameManager" type="Node" unique_id=1161211126]
+script = ExtResource("1_hwd4i")
+
+[node name="CoinsInterface" parent="." unique_id=2141965510 instance=ExtResource("2_glms7")]

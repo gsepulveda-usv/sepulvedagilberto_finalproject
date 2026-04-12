@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cba2evn7m35eb"]
+
+[ext_resource type="Texture2D" uid="uid://c5pga5qmbl2qo" path="res://assets/tilesets/tileset_dark.png" id="1_7r0nw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_neng8"]
+size = Vector2(32, 16)
+
+[node name="Stone Platform" type="AnimatableBody2D" unique_id=1323513222]
+position = Vector2(-8, -8)
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="." unique_id=823815649]
+texture = ExtResource("1_7r0nw")
+region_enabled = true
+region_rect = Rect2(16, 320, 16, 16)
+
+[node name="AnimatedSprite2D2" type="Sprite2D" parent="." unique_id=1229504407]
+position = Vector2(16, 0)
+texture = ExtResource("1_7r0nw")
+region_enabled = true
+region_rect = Rect2(16, 320, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1852349051]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_neng8")
