@@ -1,18 +1,25 @@
 extends Node2D
 
+signal healthChanged
+
 const SPEED = 60
 
 var direction = -1
-var health = 10
+var maxHealth = 10
+var max_value = maxHealth
+var currentHealth = 10
 var isDead: bool = false
+var current_value = currentHealth
 var can_attack: bool = false
 @onready var ray_cast_right: RayCast2D = $RayCastRight
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	self.max_value = maxHealth
+	self.current_value = currentHealth
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -26,10 +33,12 @@ func _process(delta: float) -> void:
 
 func _on_kill_box_body_entered(body: Node2D) -> void:
 	if body.name == "Red Dino" :
-		health -= 1
-	print("Enemy hit! Remaining health: ", health)
+		currentHealth -= 1
+		healthChanged.emit()
+		print("Sending signal to health bar")
+	print("Enemy hit! Remaining health: ", currentHealth)
 	body.bounce_after_stomp()
-	if health <= 0:
+	if currentHealth <= 0:
 		print("Health is 0, Enemy is dead!")
 		$AnimatedSprite2D.play("dead")
 		print("Dead animation is playing")
@@ -39,4 +48,4 @@ func _on_kill_box_body_entered(body: Node2D) -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite.animation == "dead":
 		queue_free()
-		print("Enemy had died")
+		print("Enemy has died")

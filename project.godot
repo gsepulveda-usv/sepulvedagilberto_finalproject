@@ -25,12 +25,13 @@ GlobalScript="*uid://s7c2onw11m5e"
 
 [editor]
 
-movie_writer/movie_file="C:/Users/sepic/Documents/Godot/sepulveda-gilberto-final-project/movies/SepulvedaGilberto_FinalProject_ProgressCheck_Coding_01.avi"
+movie_writer/movie_file="C:/Users/sepic/Documents/Godot/sepulveda-gilberto-final-project/movies/SepulvedaGilberto_FinalProject_ProgressCheck_SetDressing_01.avi"
 
 [global_group]
 
 player=""
 enemies=""
+killzone=""
 
 [input]
 
