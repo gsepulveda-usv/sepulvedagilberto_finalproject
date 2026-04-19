@@ -3,7 +3,11 @@ extends Node2D
 const SPEED = 40
 
 var direction = -1
-var health = 1
+var maxHealth = 2
+var max_value = maxHealth
+var currentHealth = 2
+var isDead: bool = false
+var current_value = currentHealth
 
 @onready var ray_cast_right: RayCast2D = $RayCastRight
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
@@ -21,10 +25,11 @@ func _process(delta: float) -> void:
 	
 func _on_kill_box_body_entered(body: Node2D) -> void:
 	if body.name == "Red Dino" :
-		health = 0
+		currentHealth -= 1
 		body.bounce_after_stomp()
-		$AnimatedSprite2D.play("dead")
-		await $AnimatedSprite2D.animation_finished
+		if currentHealth <=0:
+			$AnimatedSprite2D.play("dead")
+			await $AnimatedSprite2D.animation_finished
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite.animation == "dead":

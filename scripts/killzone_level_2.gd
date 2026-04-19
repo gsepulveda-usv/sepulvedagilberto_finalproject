@@ -1,6 +1,5 @@
 extends Area2D
 
-var player
 @onready var checkpoint_1: Sprite2D = $"../../../Checkpoints/Checkpoint1"
 @onready var timer: Timer = $Timer
 
@@ -10,12 +9,10 @@ func _on_body_entered(body: Node2D) -> void:
 	print("Engine time slows down")
 	timer.start()
 	print("Timer starts")
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.5).timeout
 	print("Waiting on timer to timeout")
 	body.global_position = GlobalScript.checkpoint_1_pos
 	print("Respawning player")
-	set_physics_process(true)
-	print("Player can move again")
 
 func _on_timer_timeout() -> void:
 	Engine.time_scale = 1.0

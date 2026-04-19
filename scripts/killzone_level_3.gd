@@ -8,7 +8,7 @@ func _on_body_entered(body: Node2D) -> void:
 	print("You died! Killzone Level 3")
 	Engine.time_scale = 0.5
 	timer.start()
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.5).timeout
 	body.global_position = GlobalScript.checkpoint_2_pos
 	print("Respawning player")
 	print(global_position)
