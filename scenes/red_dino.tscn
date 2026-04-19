@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://drrv7jsvfsegc" path="res://assets/characters/DinoSprites - mort.png" id="1_1egoj"]
 [ext_resource type="Script" uid="uid://cmyera1flx4ht" path="res://scripts/red_dino.gd" id="1_tlejt"]
+[ext_resource type="Texture2D" uid="uid://ff3o1hb3ruk5" path="res://assets/characters/DinoSprite_Mort_Death_Animation.png" id="3_kl5mg"]
 [ext_resource type="AudioStream" uid="uid://b5h1lflqfox1t" path="res://assets/sounds/sfx_jump.ogg" id="3_ugdvr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4afit"]
@@ -17,28 +18,28 @@ atlas = ExtResource("1_1egoj")
 region = Rect2(384, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljsjl"]
-atlas = ExtResource("1_1egoj")
-region = Rect2(336, 0, 24, 24)
+atlas = ExtResource("3_kl5mg")
+region = Rect2(9, 0, 18, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_66hs0"]
-atlas = ExtResource("1_1egoj")
-region = Rect2(360, 0, 24, 24)
+atlas = ExtResource("3_kl5mg")
+region = Rect2(32, 0, 18, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nu2n4"]
-atlas = ExtResource("1_1egoj")
-region = Rect2(384, 0, 24, 24)
+atlas = ExtResource("3_kl5mg")
+region = Rect2(55, 0, 18, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5vx5k"]
-atlas = ExtResource("1_1egoj")
-region = Rect2(336, 0, 24, 24)
+atlas = ExtResource("3_kl5mg")
+region = Rect2(83, 0, 18, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wd56c"]
-atlas = ExtResource("1_1egoj")
-region = Rect2(360, 0, 24, 24)
+atlas = ExtResource("3_kl5mg")
+region = Rect2(113, 0, 18, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kbga8"]
-atlas = ExtResource("1_1egoj")
-region = Rect2(384, 0, 24, 24)
+atlas = ExtResource("3_kl5mg")
+region = Rect2(143, 0, 21, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tlejt"]
 atlas = ExtResource("1_1egoj")
@@ -106,6 +107,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mvw32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntgl2")
 }],
 "loop": false,
 "name": &"Damage",
@@ -125,16 +129,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_66hs0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5vx5k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wd56c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kbga8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wd56c")
+"texture": SubResource("AtlasTexture_nu2n4")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5vx5k")
@@ -144,12 +139,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kbga8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wd56c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ljsjl")
 }],
 "loop": false,
 "name": &"Death",
@@ -211,23 +200,62 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e8a1w"]
-radius = 7.0
+radius = 7.0000005
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugdvr"]
-size = Vector2(11, 2)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kl5mg"]
+size = Vector2(14, 3.5)
+
+[sub_resource type="Animation" id="Animation_kl5mg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -9)]
+}
+
+[sub_resource type="Animation" id="Animation_5a8oj"]
+resource_name = "going_up"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -9), Vector2(0, -200)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5cekk"]
+_data = {
+&"RESET": SubResource("Animation_kl5mg"),
+&"going_up": SubResource("Animation_5a8oj")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5a8oj"]
+size = Vector2(14, 6)
 
 [node name="Red Dino" type="CharacterBody2D" unique_id=1376993074 groups=["Player", "player"]]
 z_index = 5
 collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_tlejt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=682269060]
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_5cekk")
-animation = &"Death"
+animation = &"Idle"
 autoplay = "Idle"
-frame = 12
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=764035240]
 position = Vector2(1.8626451e-09, -9)
@@ -239,13 +267,27 @@ stream = ExtResource("3_ugdvr")
 volume_db = -5.0
 bus = &"SFX"
 
-[node name="JumpKillZone" type="Area2D" parent="." unique_id=1619691771]
+[node name="HurtBox" type="Area2D" parent="." unique_id=857979456]
 collision_layer = 2
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpKillZone" unique_id=1382938770]
-position = Vector2(-0.5, -1)
-shape = SubResource("RectangleShape2D_ugdvr")
-debug_color = Color(0.8300378, 0.11992972, 0.9022877, 0.41960785)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=812189666]
+position = Vector2(1, -7.75)
+shape = SubResource("RectangleShape2D_kl5mg")
+debug_color = Color(0.7968326, 0.13166124, 0.96639556, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=602078852]
+libraries/ = SubResource("AnimationLibrary_5cekk")
+
+[node name="Killzone_Box" type="Area2D" parent="." unique_id=233622085]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone_Box" unique_id=642315760]
+position = Vector2(1.0000001, -2)
+scale = Vector2(1.0523161, 0.9558432)
+shape = SubResource("RectangleShape2D_5a8oj")
+debug_color = Color(0.73451465, 0.46961284, 0.07994025, 0.41960785)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
+[connection signal="area_entered" from="Killzone_Box" to="." method="_on_killzone_box_area_entered"]

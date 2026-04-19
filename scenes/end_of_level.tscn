@@ -1,0 +1,290 @@
+[gd_scene format=3 uid="uid://bvlaxc6ad7eaq"]
+
+[ext_resource type="FontFile" uid="uid://dshtrc5ngwuv6" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_grefp"]
+
+[sub_resource type="Texture2DRD" id="Texture2DRD_7y6xb"]
+
+[sub_resource type="Animation" id="Animation_7x2g8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5m6nd"]
+resource_name = "fade_in"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 3, 20, 22),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_twyrv"]
+_data = {
+&"RESET": SubResource("Animation_7x2g8"),
+&"fade_in": SubResource("Animation_5m6nd")
+}
+
+[sub_resource type="Animation" id="Animation_bd6su"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_q2oaj"]
+resource_name = "fade"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 7, 20, 22),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mxr1s"]
+_data = {
+&"RESET": SubResource("Animation_bd6su"),
+&"fade": SubResource("Animation_q2oaj")
+}
+
+[sub_resource type="Animation" id="Animation_j3643"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_otr70"]
+resource_name = "fade_in"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9, 11, 20, 22),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6armo"]
+_data = {
+&"RESET": SubResource("Animation_j3643"),
+&"fade_in": SubResource("Animation_otr70")
+}
+
+[sub_resource type="Animation" id="Animation_muo02"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uugyn"]
+resource_name = "fade_in"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 13, 15, 20, 22),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1re2p"]
+_data = {
+&"RESET": SubResource("Animation_muo02"),
+&"fade_in": SubResource("Animation_uugyn")
+}
+
+[sub_resource type="Animation" id="Animation_grefp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7y6xb"]
+resource_name = "fade_in"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 23, 25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7x2g8"]
+_data = {
+&"RESET": SubResource("Animation_grefp"),
+&"fade_in": SubResource("Animation_7y6xb")
+}
+
+[node name="End of Level" type="Control" unique_id=322357319]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=999894276]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("Texture2DRD_7y6xb")
+
+[node name="Label" type="Label" parent="." unique_id=2025902297]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 56.0
+offset_top = 115.0
+offset_right = 1096.0
+offset_bottom = 182.0
+theme_override_fonts/font = ExtResource("1_grefp")
+theme_override_font_sizes/font_size = 32
+text = "The Little Red Dino overcame the 
+evil slimes within the cavern"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label" unique_id=1675752176]
+libraries/ = SubResource("AnimationLibrary_twyrv")
+autoplay = &"fade_in"
+
+[node name="Label2" type="Label" parent="." unique_id=1021447370]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 186.0
+offset_top = 263.0
+offset_right = 966.0
+offset_bottom = 330.0
+theme_override_fonts/font = ExtResource("1_grefp")
+theme_override_font_sizes/font_size = 32
+text = "But there are more dangers 
+that lie ahead"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label2" unique_id=894078654]
+libraries/ = SubResource("AnimationLibrary_mxr1s")
+autoplay = &"fade"
+
+[node name="Label3" type="Label" parent="." unique_id=1003423584]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 249.0
+offset_top = 407.0
+offset_right = 897.0
+offset_bottom = 439.0
+theme_override_fonts/font = ExtResource("1_grefp")
+theme_override_font_sizes/font_size = 32
+text = "The question now is..."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label3" unique_id=329258763]
+libraries/ = SubResource("AnimationLibrary_6armo")
+autoplay = &"fade_in"
+
+[node name="Label4" type="Label" parent="." unique_id=1564143408]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 221.0
+offset_top = 499.0
+offset_right = 917.0
+offset_bottom = 566.0
+theme_override_fonts/font = ExtResource("1_grefp")
+theme_override_font_sizes/font_size = 32
+text = "Where will this elevator 
+take our hero next???"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label4" unique_id=781948235]
+libraries/ = SubResource("AnimationLibrary_1re2p")
+autoplay = &"fade_in"
+
+[node name="Label5" type="Label" parent="." unique_id=190811566]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 313.0
+offset_top = 310.0
+offset_right = 841.0
+offset_bottom = 342.0
+theme_override_fonts/font = ExtResource("1_grefp")
+theme_override_font_sizes/font_size = 32
+text = "The End... for now."
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label5" unique_id=690805610]
+libraries/ = SubResource("AnimationLibrary_7x2g8")
+autoplay = &"fade_in"

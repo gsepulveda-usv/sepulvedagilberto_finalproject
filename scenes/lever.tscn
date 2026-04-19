@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dpf4hded2lyfj"]
+
+[ext_resource type="Texture2D" uid="uid://dv2k8j7jxyyuh" path="res://assets/tilesets/props_updated.png" id="1_4kwec"]
+[ext_resource type="Script" uid="uid://bhrcyafb04t2y" path="res://scripts/lever.gd" id="1_ncfea"]
+[ext_resource type="AudioStream" uid="uid://b3otlmlm1wkcb" path="res://assets/sounds/Explosion2_ses.ogg" id="3_qxmkn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncfea"]
+atlas = ExtResource("1_4kwec")
+region = Rect2(330, 160, 24, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8di2w"]
+atlas = ExtResource("1_4kwec")
+region = Rect2(329, 160, 24, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkrws"]
+atlas = ExtResource("1_4kwec")
+region = Rect2(331, 160, 24, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxmkn"]
+atlas = ExtResource("1_4kwec")
+region = Rect2(329, 176, 24, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8di2w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncfea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8di2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkrws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncfea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8di2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkrws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxmkn")
+}],
+"loop": false,
+"name": &"switch",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3flmr"]
+size = Vector2(10, 6)
+
+[node name="Lever" type="Node2D" unique_id=1824440939]
+script = ExtResource("1_ncfea")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=565153370]
+sprite_frames = SubResource("SpriteFrames_8di2w")
+animation = &"switch"
+frame = 6
+frame_progress = 1.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1804827525]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1836753869]
+position = Vector2(3, 4)
+shape = SubResource("RectangleShape2D_3flmr")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1769643659]
+stream = ExtResource("3_qxmkn")
+volume_db = -5.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

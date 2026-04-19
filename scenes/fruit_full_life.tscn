@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cwlwoifplvyak" path="res://assets/items/fruit_animation.png" id="1_lb6hy"]
 [ext_resource type="Script" uid="uid://dofgewpskjjon" path="res://scripts/fruit_full_life.gd" id="2_oa02l"]
 [ext_resource type="AudioStream" uid="uid://c5prdsju4bnni" path="res://assets/sounds/sfx_gem.ogg" id="3_g0sn7"]
+[ext_resource type="FontFile" uid="uid://dshtrc5ngwuv6" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_g0sn7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m2iqo"]
 atlas = ExtResource("1_lb6hy")
@@ -57,6 +58,43 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_0l56c"]
 radius = 5.0
 
+[sub_resource type="Animation" id="Animation_oa02l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g0sn7"]
+resource_name = "fade in and fade out"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.17, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c5gyt"]
+_data = {
+&"RESET": SubResource("Animation_oa02l"),
+&"fade in and fade out": SubResource("Animation_g0sn7")
+}
+
 [node name="Fruit Full Life" type="AnimatedSprite2D" unique_id=536863348]
 sprite_frames = SubResource("SpriteFrames_d2j5m")
 autoplay = "default"
@@ -72,5 +110,18 @@ shape = SubResource("CircleShape2D_0l56c")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=682141902]
 stream = ExtResource("3_g0sn7")
+
+[node name="Label" type="Label" parent="." unique_id=1711183331]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -34.0
+offset_top = -23.0
+offset_right = 40.0
+offset_bottom = -12.0
+theme_override_fonts/font = ExtResource("4_g0sn7")
+theme_override_font_sizes/font_size = 8
+text = "Max Health"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label" unique_id=76063908]
+libraries/ = SubResource("AnimationLibrary_c5gyt")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

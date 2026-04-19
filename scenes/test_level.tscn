@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ds4qw67j1cxp0" path="res://scenes/red_dino.tscn" id="1_paw1w"]
 [ext_resource type="Texture2D" uid="uid://c5pga5qmbl2qo" path="res://assets/tilesets/tileset_dark.png" id="2_j6w7d"]
+[ext_resource type="PackedScene" uid="uid://qq1vpdip2bu2" path="res://scenes/green_mini_boss.tscn" id="3_j6w7d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x4b8f"]
 texture = ExtResource("2_j6w7d")
@@ -145,6 +146,12 @@ sources/0 = SubResource("TileSetAtlasSource_x4b8f")
 
 [node name="Red Dino" parent="." unique_id=1376993074 instance=ExtResource("1_paw1w")]
 
+[node name="Camera2D" type="Camera2D" parent="Red Dino" unique_id=652189071]
+zoom = Vector2(3, 3)
+
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=652670685]
 tile_map_data = PackedByteArray("AAD+/wAAAAARAA4AAAD//wAAAAARAA4AAAAAAAAAAAARAA4AAAABAAAAAAARAA4AAAACAAAAAAARAA4AAAADAAAAAAARAA4AAAAEAAAAAAARAA4AAAAFAAAAAAARAA4AAAAGAAAAAAARAA4AAAAHAAAAAAARAA4AAAAIAAAAAAARAA4AAAAJAAAAAAARAA4AAAAKAAAAAAARAA4AAAALAAAAAAARAA4AAAAMAAAAAAARAA4AAAANAAAAAAARAA4AAAAOAAAAAAARAA4AAAAPAAAAAAARAA4AAAAQAAAAAAARAA4AAAARAAAAAAARAA4AAAASAAAAAAARAA4AAAATAAAAAAARAA4AAAD+////AAAKAAoAAAATAP//AAAKAAoAAAA=")
 tile_set = SubResource("TileSet_tmr53")
+
+[node name="Green Mini Boss" parent="." unique_id=563146897 instance=ExtResource("3_j6w7d")]
+position = Vector2(251, -3)

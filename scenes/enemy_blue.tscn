@@ -94,6 +94,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3dbby"]
+size = Vector2(6.697891, 4.6034245)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58m5x"]
 size = Vector2(2, 5)
 
@@ -101,9 +104,11 @@ size = Vector2(2, 5)
 size = Vector2(2, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1iq4d"]
-size = Vector2(10, 2.75)
+size = Vector2(10, 2.3552732)
 
-[node name="enemy_blue" type="Node2D" unique_id=260017362 groups=["enemies"]]
+[node name="enemy_blue" type="RigidBody2D" unique_id=299969840 groups=["enemies"]]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_58m5x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=583157667]
@@ -111,6 +116,11 @@ position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_6q76t")
 animation = &"walking"
 autoplay = "walking"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=879277390]
+position = Vector2(0, -3.5848577)
+scale = Vector2(1.1944058, 1.4837399)
+shape = SubResource("RectangleShape2D_3dbby")
 
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=480353497]
 position = Vector2(0.05209732, -4.688879)
@@ -125,11 +135,13 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillzoneLevel3" unique_id=1874088765]
-position = Vector2(-6, -2.5)
+position = Vector2(-6, -2)
+scale = Vector2(1, 0.83999914)
 shape = SubResource("RectangleShape2D_58m5x")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="KillzoneLevel3" unique_id=1806020322]
-position = Vector2(6, -2.5)
+position = Vector2(6, -2)
+scale = Vector2(1, 0.83999914)
 shape = SubResource("RectangleShape2D_pd2rf")
 
 [node name="KillBox" type="Area2D" parent="." unique_id=379936294]
@@ -137,7 +149,8 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillBox" unique_id=144316036]
-position = Vector2(0, -10.375)
+position = Vector2(0, -11.201335)
+scale = Vector2(0.81558996, 1.0201244)
 shape = SubResource("RectangleShape2D_1iq4d")
 debug_color = Color(0.75340587, 0.25027502, 0.93952274, 0.41960785)
 

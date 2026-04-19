@@ -94,6 +94,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fug5m"]
+size = Vector2(8, 5.8147645)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uspd4"]
 size = Vector2(2, 5)
 
@@ -101,9 +104,11 @@ size = Vector2(2, 5)
 size = Vector2(2, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6oqi4"]
-size = Vector2(10, 2.75)
+size = Vector2(8, 2.375)
 
-[node name="enemy_purple" type="Node2D" unique_id=122868733 groups=["enemies"]]
+[node name="enemy_purple" type="RigidBody2D" unique_id=87970734 groups=["enemies"]]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_uspd4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=554288899]
@@ -111,6 +116,11 @@ position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_py7xv")
 animation = &"walk"
 autoplay = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=72652863]
+position = Vector2(0, -4)
+scale = Vector2(1, 1.0318561)
+shape = SubResource("RectangleShape2D_fug5m")
 
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=449827148]
 position = Vector2(0.05209732, -4.688879)
@@ -126,10 +136,12 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillzoneLevel2" unique_id=791347703]
 position = Vector2(-6, -2.5)
+scale = Vector2(1, 0.7599995)
 shape = SubResource("RectangleShape2D_uspd4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="KillzoneLevel2" unique_id=415419181]
 position = Vector2(6, -2.5)
+scale = Vector2(1, 0.7599995)
 shape = SubResource("RectangleShape2D_dkwtm")
 
 [node name="KillBox" type="Area2D" parent="." unique_id=402738100]
@@ -137,7 +149,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillBox" unique_id=130136138]
-position = Vector2(0, -10.375)
+position = Vector2(0, -11.1875)
 shape = SubResource("RectangleShape2D_6oqi4")
 debug_color = Color(0.75340587, 0.25027502, 0.93952274, 0.41960785)
 

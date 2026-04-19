@@ -133,7 +133,7 @@ size = Vector2(52, 13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_otwny"]
 size = Vector2(36, 7.5)
 
-[node name="Purple Mini Boss" type="Node2D" unique_id=1160617555]
+[node name="Purple Mini Boss" type="Node2D" unique_id=1160617555 groups=["enemies"]]
 script = ExtResource("1_simqi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1960894654]

@@ -182,7 +182,69 @@ size = Vector2(54, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4rrje"]
 size = Vector2(32, 7.5)
 
-[node name="Blue Mini Boss" type="Node2D" unique_id=1655035560]
+[sub_resource type="Animation" id="Animation_g252y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KillzoneFinalArea/CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -31)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KillBox/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -63)]
+}
+
+[sub_resource type="Animation" id="Animation_pempj"]
+resource_name = "jump"
+length = 0.8333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KillzoneFinalArea/CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.415, 0.76666665, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -31), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KillBox/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.415, 0.76666665, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -32), Vector2(0, -32), Vector2(0, -63), Vector2(0, -32), Vector2(0, -32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_edh2n"]
+_data = {
+&"RESET": SubResource("Animation_g252y"),
+&"jump": SubResource("Animation_pempj")
+}
+
+[node name="Blue Mini Boss" type="Node2D" unique_id=1655035560 groups=["enemies"]]
 script = ExtResource("1_g252y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2087002788]
@@ -191,6 +253,7 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_wyety")
 animation = &"attack"
 autoplay = "attack"
+frame_progress = 0.46200055
 
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=1414381198]
 position = Vector2(0.05209732, -4.688879)
@@ -205,7 +268,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillzoneFinalArea" unique_id=176446589]
-position = Vector2(0, 2)
+position = Vector2(0, -31)
 shape = SubResource("RectangleShape2D_pempj")
 
 [node name="KillBox" type="Area2D" parent="." unique_id=1439912895]
@@ -213,9 +276,13 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillBox" unique_id=337094850]
-position = Vector2(0, -30)
+position = Vector2(0, -63)
 shape = SubResource("RectangleShape2D_4rrje")
 debug_color = Color(0.8735025, 0.0037850023, 0.8412964, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=496179959]
+libraries/ = SubResource("AnimationLibrary_edh2n")
+autoplay = &"jump"
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="KillBox" to="." method="_on_kill_box_body_entered"]

@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://dshtrc5ngwuv6" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_clta3"]
 [ext_resource type="Texture2D" uid="uid://csa8knr61hecg" path="res://assets/tilesets/middle.png" id="3_tli5i"]
 [ext_resource type="PackedScene" uid="uid://cpmbdhdqugyr4" path="res://scenes/fade_transition.tscn" id="5_y2r1h"]
+[ext_resource type="AudioStream" uid="uid://caj8nvrhllifo" path="res://assets/music/JDSherbert - Ambiences Music Pack - The Blackpenny Pub.ogg" id="6_y2r1h"]
 
 [node name="Button Menu" type="Control" unique_id=1518730935]
 layout_mode = 3
@@ -133,8 +134,18 @@ text = "Esc or Joypad Start/Menu"
 visible = false
 layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="fade_timer" type="Timer" parent="Fade Transition" unique_id=145552118]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2073635292]
+stream = ExtResource("6_y2r1h")
+volume_db = -10.0
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="VBoxContainer/Back to Options" to="." method="_on_back_to_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Back to Main Menu" to="." method="_on_back_to_main_menu_pressed"]

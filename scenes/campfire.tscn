@@ -133,12 +133,14 @@ animations = [{
 radius = 4.0
 
 [sub_resource type="Gradient" id="Gradient_mg5w5"]
+offsets = PackedFloat32Array(0, 0.72875816)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_2bmx2"]
 gradient = SubResource("Gradient_mg5w5")
 fill = 1
-fill_from = Vector2(0.515625, 0.4982639)
-fill_to = Vector2(0.25868055, 0.7934028)
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 1)
 
 [node name="Campfire" type="AnimatableBody2D" unique_id=1976024523]
 
@@ -157,6 +159,7 @@ disabled = true
 position = Vector2(1.9073486e-06, -19.5)
 scale = Vector2(1.125, 0.609375)
 color = Color(1, 0.87058824, 0.80784315, 1)
+energy = 3.0
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_2bmx2")
 texture_scale = 2.5
